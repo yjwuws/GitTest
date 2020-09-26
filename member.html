@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Examples</title>
+    <style type="text/css">
+        #title1 {
+            font-family: "microsoft-JhengHei";
+            color: blue;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #title2 {
+            font-family: "標楷體";
+            color: red;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        table {
+            margin: 0 auto;
+            border: 1px solid silver;
+        }
+        th {
+            text-align: right;
+        }
+        td {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body align="center">
+    <font id="title1">會員個人資料</font>
+    <font id="title2">*必填:</font>
+    <form action="image.html" method="post">
+        <table border="1" cellpadding="5" bordercolor="silver">
+            <tr>
+                <th>*姓名:</th>
+                <td>
+                    姓:<input type="text" name="f" size="1" required>
+                    名:<input type="text" name="n" size="4" required>
+                </td>
+            </tr>
+            <tr>
+                <th>*性別:</th>
+                <td>
+                    <input type="radio" name="gender" value="male" required>男
+                    <input type="radio" name="gender" value="female" required>女
+                </td>
+            </tr>
+            <tr>
+                <th>*生日:</th>
+                <td><input type="date" name="birthday" required></td>
+            </tr>
+            <tr>
+                <th>*通訊地址:</th>
+                <td>
+                    <input type="text" name="place" size="30" required>
+                </td>
+            </tr>
+            <tr>
+                <th>*Email:</th>
+                <td><input type="email" name="email" size="25" required></td>
+            </tr>
+            <tr>
+                <th>*聯絡電話:</th>
+                <td>
+                    <input type="text" name="3" size="9" required>
+                </td>
+            </tr>
+            <tr>
+                <th>*密碼:</th>
+                <td>
+                    <input type="password" name="psw" size="15" minlength="8" placeholder="長度至少8個字" required>
+                    <font size="1">請自取一個密碼, 長度至少8個字</font>
+                </td>
+            </tr>
+            <tr>
+                <th>*確認密碼:</th>
+                <td>
+                    <input type="password" name="psw" size="15" minlength="8" required>
+                    <font size="1">請再輸入一次密碼</font>
+                </td>
+            </tr>
+            <tr>
+                <th>身分證字號:</th>
+                <td>
+                    <input type="text" id="id" name="nameID" size="15">
+                    <button id="idBtn" onclick="isIdNo()">檢查</button>
+                </td>
+            </tr>
+            <tr>
+                <th>證件照片:</th>
+                <td>
+                    <input type="file" id="pic" name="pic" multiple>
+                    <input type="button" value="刪除" onclick="del()" checked>
+                    <div id="preview"></div>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">送出</button>
+        <button type="reset">重填</button>
+    </form>
+    <section>
+        <div>
+            <div>
+                <h2>註冊資訊</h2>
+                <div>
+                    <form>
+                        <!---->
+                        <div class="form-group row"><label class="col-sm-2 col-form-label text-right">姓名</label>
+                            <div class="col-sm-10 row__input"><input type="text" name="姓名" required="required" class="form-control" placeholder="請輸入您的姓名"> <label alt="Placeholder"></label></div>
+                        </div>
+                        <div class="form-group row"><label class="col-sm-2 col-form-label text-right">性別</label>
+                            <div class="col-sm-10 row__input">
+                                <div class="form-check inline ml-3"><label class="form-check-label">
+                                        男性
+                                        <input type="radio" name="sex" value="0" class="form-check-input"> <span class="radio-mark"></span></label></div>
+                                <div class="form-check inline"><label class="form-check-label">
+                                        女性
+                                        <input type="radio" name="sex" value="1" class="form-check-input"> <span class="radio-mark"></span></label></div>
+                            </div>
+                        </div>
+                        <div class="form-group row"><label class="col-sm-2 col-form-label text-right">手機</label>
+                            <div class="col-sm-10 row__input"><input type="tel" name="手機" required="required" value="" class="form-control"> <label alt="Placeholder" placeholder="請輸入您的手機"></label></div>
+                        </div>
+                        <div class="form-group row"><label class="col-sm-2 col-form-label text-right">密碼</label>
+                            <div class="col-sm-10 row__input"><input type="password" name="密碼" required="required" value="" class="form-control"> <label alt="Placeholder" placeholder="請輸入您的密碼，英文數字至少8碼"></label></div>
+                        </div>
+                        <div class="form-group row"><label class="col-sm-2 col-form-label text-right">確認密碼</label>
+                            <div class="col-sm-10 row__input"><input type="password" name="確認密碼" required="required" data-vv-as="確認密碼" class="form-control"> <label alt="Placeholder" placeholder="請輸入您的密碼"></label></div>
+                        </div>
+                        <div class="form-group row justify-content-end mt-sm-0 mt-4 pl-sm-0 pl-3">
+                            <div class="col-sm-10">
+                                <div class="form-check"><label class="form-check-label">
+                                        我已同意
+                                        <a class="text-secondary ml-2">租租通DDROOM服務條款</a> <input type="checkbox" name="agree" value="true" class="form-check-input"> <span class="radio-mark check-mark"></span></label></div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-end mt-sm-0 mt-4 pl-sm-0 pl-3">
+                            <div class="col-sm-10">
+                                <div class="form-check"><label class="form-check-label">
+                                        我要訂閱電子報
+                                        <input type="checkbox" name="edm" value="true" checked="checked" class="form-check-input"> <span class="radio-mark check-mark"></span></label></div>
+                            </div>
+                        </div>
+                        <div class="buttonBox text-center mt-sm-7 mt-4"><button type="button" class="btn shadow-sm btn-primary btn-lg">確認送出</button></div>
+                    </form>
+                </div>
+                <!---->
+                <!---->
+                <!---->
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        var s = 0;
+
+        function del() {
+            var optobj = document.querySelectorAll(".check:checked");
+            for (var i = 0; i < optobj.length; i++) {
+                if (optobj[i].checked) {
+                    optobj[i].parentElement.remove();
+                    document.getElementById("pic").value = "";
+                    n
+                }
+            }
+        }
+
+        function isIdNo() {
+            var regex = /^[A-Z][1-2][0-9]{8}$/; //正規表示法
+            var en = [10, 11, 12, 13, 14, 15, 16, 17, 34, 18, 19, 20, 21, 22, 35, 23, 24, 25, 26, 27, 28, 29, 32, 30, 31, 33]; //英文字母所對應數字
+            var id = document.getElementById('id').value.toUpperCase(); //將輸入文字轉換成大寫
+
+            if (regex.test(id)) { //比對輸入文字是否符合正規表示法
+                id = id.split('');
+                var enNumIndex = en[id[0].charCodeAt() - 65]; //英文字母所對應數字
+                var enNumArr = en[id[0].charCodeAt() - 65].toString().split(''); //將數字拆解成陣列
+                var total = enNumArr[0] * 1 + enNumArr[1] * 9; //對數字做運算
+                for (var i = 1; i < 9; i++) {
+                    total += id[i] * (9 - i); //將所有數字累加
+                }
+
+                if (10 - total % 10 == id[9] || total % 10 == 0) { //檢查比對碼
+                    window.alert('驗證成功! 是台灣國民呢!');
+                } else {
+                    window.alert('驗證失敗! 去警局報到吧你!');
+                }
+            } else {
+                window.alert('輸入格式錯誤!');
+            }
+        }
+
+        function init() {
+            var myFile = document.getElementById("pic");
+            var preview = document.getElementById('preview');
+
+            myFile.addEventListener('change', function() {
+                var files = myFile.files;
+                if (files !== null) {
+                    for (var i = 0; i < files.length; i++) {
+                        var file = files[i];
+                        if (file.type.indexOf('image') > -1) {
+                            var reader = new FileReader();
+                            reader.addEventListener('load', function(e) {
+                                var div = document.createElement('div');
+                                var check = document.createElement('input');
+                                var label = document.createElement('label');
+
+                                div.setAttribute('class', 'imgdiv');
+                                check.setAttribute("type", "checkbox");
+                                check.setAttribute("class", "check");
+                                check.setAttribute("id", s);
+                                label.setAttribute("for", s);
+
+                                var img = document.createElement('img');
+                                img.setAttribute('src', e.target.result);
+
+                                div.append(check);
+                                preview.append(div);
+                                label.append(img);
+                                div.append(label);
+                                s++;
+                            });
+                            reader.readAsDataURL(file);
+                        } else {
+                            alert('請上傳圖片');
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onload = init;
+    </script>
+</body>
+
+</html>
