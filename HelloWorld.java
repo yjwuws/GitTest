@@ -6,7 +6,7 @@ public class HelloWorld {
 		System.out.println("hsin");
 		System.out.println("hhhhhhhhhhhhhhh");
 		System.out.println("dog");
-		System.out.println("master add");
+		System.out.println("cat add"); //cat is enough
   }
   }
 }
