@@ -4,5 +4,6 @@ public class HelloWorld {
 		System.out.println("17");
 		System.out.println("jxn");
 		System.out.println("hsin");
+		System.out.println("07");
   }
 }
