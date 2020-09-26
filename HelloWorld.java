@@ -7,7 +7,11 @@ public class HelloWorld {
 		System.out.println("hsin");
 		System.out.println("hhhhhhhhhhhhhhh");
 		System.out.println("dog");
+<<<<<<< HEAD
 		System.out.println("master add"); 
   }
+=======
+		
+>>>>>>> cat
   }
 }
