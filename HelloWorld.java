@@ -2,6 +2,7 @@ public class HelloWorld {
 	String empno;
 	String name;
 	int height;
+	int phone;
     public static void main(String[] args) {
         System.out.println("Hello World.44444444444444444444444444444444!");
 		System.out.println("17");
@@ -11,6 +12,6 @@ public class HelloWorld {
 		System.out.println("dog");
 
 		System.out.println("master add"); 
-  }
+  
   }
 }
