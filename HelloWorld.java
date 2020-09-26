@@ -1,4 +1,6 @@
 public class HelloWorld {
+	int empno;
+	
     public static void main(String[] args) {
         System.out.println("Hello World.44444444444444444444444444444444!");
 		System.out.println("17");
@@ -6,5 +8,6 @@ public class HelloWorld {
 		System.out.println("hsin");
 		System.out.println("hhhhhhhhhhhhhhh");
 		System.out.println("dog");
+		
   }
 }
