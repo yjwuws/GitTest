@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tic-tac-toe</title>
+    <style type="text/CSS">
+        table, th, td{
+				border: 1px solid black;
+				border-collapse: collapse;
+				font-family: Calibri;
+				font-size: 48px;
+        }
+        caption {
+            color: navy;
+        }
+        tbody tr {
+            height: 100px;
+        }
+        td {
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+    <script>
+
+        var count = 0;
+        var player = 1;
+
+        var grids = []; //store O or X
+        var sequence = []; //store sequence
+
+        var interval = null;
+        var replayCount = 1;
+
+        function init() {
+            for (var i = 1; i <= 3; i++) {
+                grids[i] = [];
+                for (var j = 1; j <= 3; j++) {
+                    grids[i][j] = "";
+                }
+            }
+        }
+
+        function play(id) {
+            
+            var currentSelection = document.getElementById(id);
+
+            if (currentSelection.innerHTML) {
+                window.alert("Not allowed！");
+            } else if (player == 1) {
+                currentSelection.innerHTML = 'X';
+                player = 2;
+                count++;
+            } else if (player == 2) {
+                currentSelection.innerHTML = 'O';
+                player = 1;
+                count++;
+            }
+
+            var x = id.substring(4, 5);
+            var y = id.substring(5);
+            grids[x][y] = currentSelection.innerHTML;
+            sequence[count] = currentSelection;
+
+            determineStauts();
+        }
+
+        function determineStauts() {
+
+            if (count < 5) return;
+
+            var isLine = false;
+
+            for (var i = 1; i <= 3; i++) {
+                if ((grids[i][1] != "") && (grids[i][1] == grids[i][2]) && (grids[i][2] == grids[i][3])) {
+                    isLine = true;
+                }
+                if ((grids[1][i] != "") && (grids[1][i] == grids[2][i]) && (grids[2][i] == grids[3][i])) {
+                    isLine = true;
+                }
+            }
+
+            if (((grids[1][1] != "") && (grids[1][1] == grids[2][2]) && (grids[2][2] == grids[3][3])) || ((grids[3][1] != "") && (grids[3][1] == grids[2][2]) && (grids[2][2] == grids[1][3]))) {
+                isLine = true;
+            }
+
+            if (isLine == true) {
+                disableAllCells();
+                if (player == 1) {
+                    window.setTimeout("window.alert('O wins！')", 500);
+                }
+                else if (player == 2) {
+                    window.setTimeout("window.alert('X wins！')", 500);
+                }
+                document.getElementById("replay").disabled = false;
+            } else if (count == 9) {
+                window.setTimeout("window.alert('Tie！')", 500);;
+                document.getElementById("replay").disabled = false;
+            }
+
+        }
+
+        function disableAllCells() {
+            for (var i = 1; i <= 3; i++) {
+                for (var j = 1; j <= 3; j++) {
+                    document.getElementById("grid" + i + j).setAttribute("style", "pointer-events: none");
+                }
+            }
+        }
+
+
+        function replay() {
+            for (var i = 1; i <= 3; i++) {
+                for (var j = 1; j <= 3; j++) {
+                    document.getElementById("grid" + i + j).innerHTML = "";
+                }
+            }
+            interval = window.setInterval(replayStep, 500);
+        }
+
+        function replayStep() {
+            if (replayCount <= count) {
+                var currentNode = sequence[replayCount++];
+                var id = currentNode.id;
+                console.log(id);
+                var x = id.substring(4, 5);
+                var y = id.substring(5);
+                currentNode.innerHTML = grids[x][y];
+            } else {
+                determineStauts();
+                window.clearInterval(interval);
+                interval = null;
+                document.getElementById("replay").disabled = true;
+            }
+        }
+
+        window.addEventListener("load", init, false);	
+    </script>
+</head>
+
+<body>
+    <table id="table">
+        <caption>Tic-Tac-Toe</caption>
+        <tbody>
+            <tr>
+                <td id='grid11' onclick="play(id);"></td>
+                <td id='grid12' onclick="play(id);"></td>
+                <td id='grid13' onclick="play(id);"></td>
+            </tr>
+            <tr>
+                <td id='grid21' onclick="play(id);"></td>
+                <td id='grid22' onclick="play(id);"></td>
+                <td id='grid23' onclick="play(id);"></td>
+            </tr>
+            <tr>
+                <td id='grid31' onclick="play(id);"></td>
+                <td id='grid32' onclick="play(id);"></td>
+                <td id='grid33' onclick="play(id);"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <input id="replay" type="button" value="Replay" disabled onclick="replay()">
+                    <input id="new" type="button" value="New Game" onclick="location.reload()">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>
